@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: job_find_consumer
+server:
+  port: 8081
+
+email: # send grid
+  key: ${SENDGRID_API_KEY}
+  mail: ${SENDGRID_EMAIL}
+  link:
+    register: templates/register-email.html
