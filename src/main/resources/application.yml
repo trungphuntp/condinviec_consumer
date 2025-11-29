@@ -1,6 +1,8 @@
 spring:
   application:
     name: job_find_consumer
+  kafka:
+    bootstrap-servers: ${KAFKA_BOOSTRAP_SERVER}
 server:
   port: 8081
 
@@ -9,3 +11,7 @@ email: # send grid
   mail: ${SENDGRID_EMAIL}
   link:
     register: templates/register-email.html
+
+kafka:
+  username: ${KAFKA_CLIENT_ID}
+  password: ${KAFKA_CLIENT_SECRET}
