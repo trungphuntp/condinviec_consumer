@@ -13,4 +13,4 @@ COPY --from=build /app/target/codinviec_consumer-0.0.1-SNAPSHOT.jar codinviec_co
 
 # Chạy Spring Boot
 ENTRYPOINT ["java", "-jar", "codinviec_consumer.jar"]
-EXPOSE 8080
+EXPOSE 8081
