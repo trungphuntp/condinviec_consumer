@@ -1,0 +1,9 @@
+services:
+  consummer-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: codinviec-consumer
+    env_file:
+      - .env
+    restart: unless-stopped
