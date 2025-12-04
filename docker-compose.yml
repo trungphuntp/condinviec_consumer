@@ -1,9 +1,14 @@
 services:
-  consummer-app:
+  app:
     build:
       context: .
       dockerfile: Dockerfile
     container_name: codinviec-consumer
     env_file:
       - .env
+    networks:
+      - codinviec-backend
     restart: unless-stopped
+networks:
+  codinviec-backend:
+    external: true
