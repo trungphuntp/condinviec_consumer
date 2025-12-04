@@ -1,16 +1,12 @@
+FROM eclipse-temurin:21-jre-alpine
 
-FROM maven:3.9.8-eclipse-temurin-21 AS build
-WORKDIR /app
+WORKDIR /condinviec_consumer
 
-COPY . .
+# Copy bất kỳ file jar nào trong target và đổi tên thành codinviec.jar
+COPY target/*.jar condinviec_consumer.jar
 
-RUN mvn clean package -DskipTests
-
-FROM eclipse-temurin:21-jdk
-WORKDIR /app
-
-COPY --from=build /app/target/codinviec_consumer-0.0.1-SNAPSHOT.jar codinviec_consumer.jar
+# Expose port Spring Boot
+EXPOSE 8081
 
 # Chạy Spring Boot
-ENTRYPOINT ["java", "-jar", "codinviec_consumer.jar"]
-EXPOSE 8080
+ENTRYPOINT ["java", "-jar", "condinviec_consumer.jar"]

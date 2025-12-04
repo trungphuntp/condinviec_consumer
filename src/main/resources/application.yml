@@ -4,14 +4,10 @@ spring:
   kafka:
     bootstrap-servers: ${KAFKA_BOOSTRAP_SERVER}
 server:
-  port: ${PORT:${SERVER_PORT:8080}}
+  port: ${SERVER_PORT:8080}
 
 email: # send grid
   key: ${SENDGRID_API_KEY}
   mail: ${SENDGRID_EMAIL}
   link:
     register: templates/register-email.html
-
-kafka:
-  username: ${KAFKA_CLIENT_ID}
-  password: ${KAFKA_CLIENT_SECRET}

@@ -18,11 +18,6 @@ public class KafkaConfig {
     @Value("${spring.kafka.bootstrap-servers}")
     private String bootstrapServers;
 
-    @Value("${kafka.username}")
-    private String username;
-
-    @Value("${kafka.password}")
-    private String password;
 
     @Bean
     public ConsumerFactory<String, String> consumerFactory() {
@@ -30,13 +25,6 @@ public class KafkaConfig {
         props.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, bootstrapServers);
         props.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
         props.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
-
-        props.put("security.protocol", "SASL_SSL");
-        props.put("sasl.mechanism", "SCRAM-SHA-256");
-        props.put("sasl.jaas.config",
-                "org.apache.kafka.common.security.scram.ScramLoginModule required username=\""
-                        + username + "\" password=\"" + password + "\";");
-
         return new DefaultKafkaConsumerFactory<>(props);
     }
 
