@@ -6,6 +6,8 @@ services:
     container_name: codinviec-consumer
     env_file:
       - .env
+    environment:
+      TZ: "Asia/Ho_Chi_Minh"
     networks:
       - codinviec_codinviec-backend
     restart: unless-stopped
