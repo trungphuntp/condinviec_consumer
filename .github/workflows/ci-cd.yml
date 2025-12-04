@@ -39,9 +39,9 @@ jobs:
             mvn clean package -DskipTests
 
             echo "🐳 Rebuilding ONLY consumer-app service..."
-            docker compose build consumer-app
+            docker compose build condinviec_consumer-app
 
             echo "🔄 Restarting ONLY consumer-app container..."
-            docker compose up -d consumer-app
+            docker compose up -d condinviec_consumer-app
 
             echo "🎉 Consumer Deployment Completed Successfully!"
