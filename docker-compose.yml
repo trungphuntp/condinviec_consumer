@@ -7,9 +7,9 @@ services:
     env_file:
       - .env
     networks:
-      - codinviec-backend
+      - codinviec_codinviec-backend
     restart: unless-stopped
 
 networks:
-  codinviec-backend:
+  codinviec_codinviec-backend:
     external: true
