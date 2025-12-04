@@ -3,6 +3,8 @@ spring:
     name: job_find_consumer
   kafka:
     bootstrap-servers: ${KAFKA_BOOSTRAP_SERVER}
+server:
+  port: ${SERVER_PORT}
 email: # send grid
   key: ${SENDGRID_API_KEY}
   mail: ${SENDGRID_EMAIL}
