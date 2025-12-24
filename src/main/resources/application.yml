@@ -10,3 +10,4 @@ email: # send grid
   mail: ${SENDGRID_EMAIL}
   link:
     register: templates/register-email.html
+    createByAd: templates/create-user-by-admin.html

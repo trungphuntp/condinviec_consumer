@@ -1,6 +1,7 @@
 package com.cybersoft.job_find_consumer.service.imp;
 
 import com.cybersoft.job_find_consumer.DTO.InforEmailDTO;
+import com.cybersoft.job_find_consumer.DTO.InforEmailSecurityDTO;
 import com.cybersoft.job_find_consumer.service.ConsumerService;
 import com.cybersoft.job_find_consumer.util.SendEmailHelpper;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -26,4 +27,17 @@ public class ConsumerServiceImp implements ConsumerService {
           throw new RuntimeException(e);
       }
     }
+
+    @Override
+    @KafkaListener(topics = {"create_user_email"}, groupId = "group-11")
+    public void listenSendEmailSecurity(String message) {
+        try {
+            InforEmailSecurityDTO inforEmailSecurityDTO = objectMapper.readValue(message, InforEmailSecurityDTO.class);
+            sendEmailHelpper.sendEmailSecurity(inforEmailSecurityDTO);
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new RuntimeException(e);
+        }
+    }
 }
+
